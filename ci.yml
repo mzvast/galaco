@@ -1,0 +1,12 @@
+Global:
+  tool: build_submitter
+
+Default:
+  profile: [production]
+
+Profiles:
+  - profile:
+    name: production
+    env: UBUNTU
+    command: bash ./ci_build.sh
+    release: true

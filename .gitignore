@@ -1,0 +1,9 @@
+.vscode
+.rpt2*
+node_modules
+.docz
+*.log
+dist
+.DS_Store
+build
+.idea

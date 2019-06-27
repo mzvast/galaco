@@ -1,0 +1,230 @@
+---
+name: API
+order: 100
+route: /
+---
+
+如何更好的定义 React 组件 API
+
+-   [背景](#背景)
+-   [组件 API 建议](#组件-api-建议)
+    -   [尽可能最小化 API 暴露数量](#尽可能最小化-api-暴露数量)
+    -   [易于检索的目录结构](#易于检索的目录结构)
+    -   [避免写 renderXXX 类似的方法](#避免写-renderxxx-类似的方法)
+    -   [在数据边界拆分组件](#在数据边界拆分组件)
+    -   [避免为了重用组件而写笨重的组件 reusable ！== flexible](#避免为了重用组件而写笨重的组件-reusable--flexible)
+    -   [用 composition](#用-composition)
+    -   [避免用枚举值做布尔值 props](#避免用枚举值做布尔值-props)
+    -   [保持 props API 平行](#保持-props-api-平行)
+    -   [寻求团队建议](#寻求团队建议)
+-   [Refs](#refs)
+
+## 背景
+
+经过一段时间的 React 项目开发，写了不少的组件，也踩过不少的坑。本文学习整理了一些觉得比较实用的组件 API 编写的建议。
+
+## 组件 API 建议
+
+### 尽可能最小化 API 暴露数量
+
+这意味着更少的学习成本，让其他人更容易理解和使用。
+
+### 易于检索的目录结构
+
+不要过早的组织层次复杂的目录结构，在组件数量并不多的时候这么做是吃力不讨好。扁平的目录结构天生拥有字母顺序检索优势，便于其他人检索。
+
+### 避免写 renderXXX 类似的方法
+
+大部分的 render 开头的函数大概率可能应该自身是一个组件。
+
+```typescript
+// Instead of this
+class Items extends React.Component {
+  renderItems ({ items }) {
+    return items.map(item => (
+      <li key={item.id}>
+        {renderItem(item)}
+      </li>
+    ))
+  }
+
+  renderItem (item) {
+    return (
+      <div>
+        {item.name}
+      </div>
+    )
+  }
+
+  render () {
+    return (
+      <ul>
+        {renderItems(this.props)
+      </ul>
+    )
+  }
+}
+// Do this
+const ItemList = ({ items }) =>
+  <ul>
+    {items.map(item => (
+      <li key={item.id}>
+        <Item {...item} />
+      </li>
+    )}
+  </ul>
+
+const Item = ({ name }) =>
+  <div>{item.name}</div>
+
+class Items extends React.Component {
+  render () {
+    const { items } = this.props
+    return <ItemList items={items} />
+  }
+}
+```
+
+### 在数据边界拆分组件
+
+一些普通展示类组件的 API，通常应当由其数据模型来定义，而不是分开来传 props。
+
+```typescript
+// Instead of this
+<Card
+  image={product.thumbnail}
+  title={product.name}
+  text={product.description}
+  link={product.permalink}
+/>
+
+// Do this
+<ProductCard {...product} />
+```
+
+很可能 ProductCard 并不能复用，那么只留这么一份定义就可以了。你可以遵循“[Rule of three](<https://en.wikipedia.org/wiki/Rule_of_three_(computer_programming)>)”，也就是假如同样的逻辑在代码中出现了 3 次，就重构这个东西吧。
+
+### 避免为了重用组件而写笨重的组件 reusable ！== flexible
+
+别为了避免写一个新的组件，而给一个组件增加抽象属性和额外逻辑。例如，一个 Button 可能可以接受不同的 color，size，shape，但没必要每次都传一堆 props 组合进去，所谓[Apropcalypse](https://speakerdeck.com/jenncreighton/the-how-and-why-of-flexible-react-components-289aa486-464a-4dea-b89a-6f92d0af6606)。
+
+```typescript
+// Instead of this
+<Button
+  variant='secondary'
+  size='large'
+  outline
+  label='Buy Now'
+  icon='shoppingBag'
+  onClick={handleClick}
+/>
+
+// Do this
+<SecondaryButton
+  size='large'
+  onClick={handleClick}>
+  <Icon name='shoppingBag' />
+  Buy Now
+</SecondaryButton>
+```
+
+### 用 composition
+
+要尽量用 composition 的方式而不是 inherit 的方式，保证组件的灵活性。不要重复发明 props.children。如果定义的 props 接受的文字而不是基于数据结构，可能用 composition 是更好的方式。
+
+```typescript
+// Instead of this
+<Header
+  title='Hello'
+  subhead='This is a header'
+  text='And it has arbitrary props'
+/>
+
+// Do this
+<Header>
+  <Heading>Hello</Heading>
+  <Subhead>This is a header</Subhead>
+  <Text>And it uses composition</Text>
+</Header>
+```
+
+采用 composition 的方式，就不需要那么多的 documentation 了。你也可以将 composition 版本的组件绑定到某种数据模型，就像这样。
+
+```typescript
+const PageHeader = ({
+  title,
+  description
+}) =>
+  <Header>
+    <Heading>{title}</Heading>
+    <Text>{description}</Text>
+  </Header>
+
+// And ideally can be used like this
+<PageHeader {...page} />
+```
+
+### 避免用枚举值做布尔值 props
+
+布尔值作为 props 有时候会令人困惑，例如
+
+```typescript
+<Button primary />
+<Button secondary />
+```
+
+那么这样会怎样?
+
+```typescript
+<Button primary secondary />
+```
+
+这样一来不看文档就真看不懂了。因此可以尝试下面的方式
+
+```typescript
+<Button variant="primary" />
+```
+
+虽然多打了几个字，但更具可读性。
+
+### 保持 props API 平行
+
+尽量保持不同组件间取同样名字的 props，这样更容易猜测用法和记住名称。
+
+```typescript
+// Instead of this
+<DatePicker
+  date={date}
+  onSelect={handleDateChange}
+/>
+
+// Do this
+<DatePicker
+  value={date}
+  onChange={handleDateChange}
+/>
+
+```
+
+Styled System 库鼓励多个组件采用平行的 props API。例如 color 在 rebass 库的所有组件中都有同样的效果。
+
+```typescript
+// example from Rebass
+<Box color='tomato' />
+<Heading color='tomato' />
+
+```
+
+### 寻求团队建议
+
+以上的建议并不适用于所有需求，需要针对业务做灵活的变化。最好的建议是跟团队讨论，创建 RFCs 和 PRs，并尝试[Readme Driven Development](https://ponyfoo.com/articles/readme-driven-development)。写 React 组件很容易，但为团队创建一个好用的组件库值得花时间和努力去把事情做对。
+
+## Refs
+
+[Defining Component APIs in React](https://jxnblk.com/blog/defining-component-apis-in-react/)
+
+[thinking-in-react](https://reactjs.org/docs/thinking-in-react.html)
+
+[Rule of three](<https://en.wikipedia.org/wiki/Rule_of_three_(computer_programming)>)
+
+[Apropcalypse(强烈推荐)](https://speakerdeck.com/jenncreighton/the-how-and-why-of-flexible-react-components-289aa486-464a-4dea-b89a-6f92d0af6606)
