@@ -1,10 +1,8 @@
 import styled, {use, theme} from "../styled";
 import Box, {BoxProps} from "./Box";
 
-export interface BlockProps extends BoxProps {
-}
 
-const Block = styled(Box)<BlockProps>`
+const Block = styled(Box)<BoxProps>`
     display: block;
     ${theme('Block')};
 `;

@@ -1,10 +1,8 @@
 import styled, {use, theme} from "../styled";
 import Box, {BoxProps} from "./Box";
 
-export interface InlineProps extends BoxProps {
-}
 
-const Inline = styled(Box)<InlineProps>`
+const Inline = styled(Box)<BoxProps>`
     display: inline;
     ${theme('Inline')};
 `;
