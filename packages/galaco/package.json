@@ -1,6 +1,6 @@
 {
     "name": "galaco",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "main": "dist/index.js",
     "module": "dist/index.es.js",
     "files": [
@@ -21,8 +21,8 @@
         "lodash": "^4.17.11",
         "polished": "^3.4.1",
         "reuse": "^2.0.0",
-        "styled-tools": "^1.7.1",
-        "styled-components": "^5.0.0-beta.5"
+        "styled-components": "^5.0.0-beta.5",
+        "styled-tools": "^1.7.1"
     },
     "devDependencies": {
         "@emotion/is-prop-valid": "^0.8.2",
