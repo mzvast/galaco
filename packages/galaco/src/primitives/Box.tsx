@@ -12,22 +12,22 @@ import use from 'reuse';
 import {Omit} from '../utils/types';
 import buildColorFromPalette from '../utils/buildColorFromPalette';
 
-type CSSProperties = {[K in keyof typeof CSSProps]?: string | number};
+type CSSProperties = { [K in keyof typeof CSSProps]?: string | number };
 
 export type BoxProps = Omit<React.HTMLProps<any>, 'as'> &
     CSSProperties & {
-        use?: keyof JSX.IntrinsicElements | React.ComponentType<any>;
-        children?: React.ReactNode;
-        static?: boolean;
-        absolute?: boolean;
-        fixed?: boolean;
-        relative?: boolean;
-        sticky?: boolean;
-        opaque?: boolean;
-        palette?: string;
-        tone?: number;
-        elementRef?: React.Ref<any>;
-    };
+    use?: keyof JSX.IntrinsicElements | React.ComponentType<any>;
+    children?: React.ReactNode;
+    static?: boolean;
+    absolute?: boolean;
+    fixed?: boolean;
+    relative?: boolean;
+    sticky?: boolean;
+    opaque?: boolean;
+    palette?: string;
+    tone?: number;
+    elementRef?: React.Ref<any>;
+};
 
 const BoxComponent = React.forwardRef<HTMLElement, BoxProps>(
     ({use: T, ...props}, ref) => {
@@ -74,22 +74,5 @@ const Box = styled(BoxComponent)<BoxProps>`
     }
 `;
 
-const useTypes = [PropTypes.func, PropTypes.string, PropTypes.object];
-
-// @ts-ignore
-Box.propTypes = {
-    use: PropTypes.oneOfType([
-        ...useTypes,
-        PropTypes.arrayOf(PropTypes.oneOfType(useTypes))
-    ]),
-    opaque: PropTypes.bool,
-    palette: PropTypes.string,
-    tone: PropTypes.number,
-    static: PropTypes.bool,
-    absolute: PropTypes.bool,
-    fixed: PropTypes.bool,
-    relative: PropTypes.bool,
-    sticky: PropTypes.bool
-};
 
 export default use(Box, 'div');

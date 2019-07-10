@@ -1,6 +1,12 @@
-import styled from "../styled";
-import Box from "./Box";
+import styled, {use, theme} from "../styled";
+import Box, {BoxProps} from './Box';
 
-export const Grid = styled(Box)`
+export interface GridProps extends BoxProps {
+
+}
+
+const Grid = styled(Box)<GridProps>`
     display: grid;
+    ${theme('Grid')};
 `;
+export default use(Grid, "div")
