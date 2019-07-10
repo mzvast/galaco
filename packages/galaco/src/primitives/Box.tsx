@@ -18,14 +18,9 @@ export type BoxProps = Omit<React.HTMLProps<any>, 'as'> &
     CSSProperties & {
     use?: keyof JSX.IntrinsicElements | React.ComponentType<any>;
     children?: React.ReactNode;
-    static?: boolean;
-    absolute?: boolean;
-    fixed?: boolean;
-    relative?: boolean;
-    sticky?: boolean;
-    opaque?: boolean;
+    // opaque?: boolean;
     palette?: string;
-    tone?: number;
+    // tone?: number;
     elementRef?: React.Ref<any>;
 };
 
@@ -55,7 +50,6 @@ const BoxComponent = React.forwardRef<HTMLElement, BoxProps>(
     }
 );
 
-const positions = ['static', 'absolute', 'fixed', 'relative', 'sticky'];
 
 const Box = styled(BoxComponent)<BoxProps>`
     margin: unset;
@@ -69,9 +63,7 @@ const Box = styled(BoxComponent)<BoxProps>`
         outline: none;
     }
     ${theme('Box')};
-    &&& {
-        ${bool('position', positions)};
-    }
+   
 `;
 
 
