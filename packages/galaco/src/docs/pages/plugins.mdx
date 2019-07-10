@@ -1,0 +1,43 @@
+---
+name: Plugins
+route: /plugins
+---
+
+## getPx2vw插件
+
+插件的作用是把用styled写的组件中的px转换成vw。
+
+如果是retina屏幕，1px会转换成成0.5px。
+
+使用方式,通过给getPx2vw传入`设计稿宽度px数值`来创建插件实例。将该实例传入StyleSheetManager(要求Styled-component版本v5+)的stylisPlugins插件
+```tsx
+import {getPx2vw} from 'galaco';
+const TestObj = styled(Box)`
+    width:640px;
+    height:1px;
+    background-color: red;
+`;
+type Props = {
+    children: React.ReactNode;
+};
+type State = {};
+class Wrapper extends React.Component<Props, State> {
+    render() {
+        const {children} = this.props;
+        return (
+            //@ts-ignore
+            <StyleSheetManager stylisPlugins={[getPx2vw(1280)]}>
+                <TestObj>testObj</TestObj>
+            </StyleSheetManager>
+        );
+    }
+}
+
+export default Wrapper;
+```
+
+然后这个TestObj的width会变成vw，1px根据是否retina变成0.5px或者不变。
+
+注意：该插件可能存在的问题是，通过devicePixelRatio判定的是否retina屏幕。但如果是retina屏幕，但浏览器不支持0.5px的数值，则会显示不出这1px线。
+
+Todo：之后可能基于`utils/test1px.tsx`的方式去检测是否能显示1px的线，但不改变目前但API。
