@@ -32,9 +32,9 @@ export default function getPx2vw(pWidth: number) {
         // console.log('plugin::context:,', context, ',content:', content);
         switch (context) {
             case 1:
-                console.log('plugin::1content', content);
+                // console.log('plugin::1content', content);
                 return content.replace(/([0-9.]+)px/g, function (match, p1) {
-                    console.log('plugin::match,p1', match, p1);
+                    // console.log('plugin::match,p1', match, p1);
                     const val = Number(p1);
 
                     if (val > 1) {
