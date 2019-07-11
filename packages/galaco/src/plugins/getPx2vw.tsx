@@ -28,7 +28,7 @@ export default function getPx2vw(pWidth: number) {
      * @param column
      * @param length
      */
-    return function px2vw(context, content, selectors, parent, line, column, length) {
+    function px2vw(context, content, selectors, parent, line, column, length) {
         // console.log('plugin::context:,', context, ',content:', content);
         switch (context) {
             case 1:
@@ -52,6 +52,8 @@ export default function getPx2vw(pWidth: number) {
                 });
         }
     };
+    window['galacoMoGaiCssPlugin'] = px2vw; // MoGai Hook
+    return px2vw
 }
 
 

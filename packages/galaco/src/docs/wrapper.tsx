@@ -2,6 +2,8 @@ import * as React from 'react';
 import {StyleSheetManager, styled, Box, getPx2vw} from '..';
 import ThemeProvider from '../theme-provider';
 
+const cssPlugin = getPx2vw(1280);
+
 const TestObj = styled(Box)`
     width:640px;
     height:1px;
@@ -23,23 +25,10 @@ class Wrapper extends React.Component<Props, State> {
         const {children} = this.props;
         return (
             //@ts-ignore
-            <StyleSheetManager stylisPlugins={[getPx2vw(1280)]}>
+            <StyleSheetManager stylisPlugins={[cssPlugin]}>
                 <ThemeProvider theme={theme}>
                     {/*<TestObj>11</TestObj>*/}
-                    {/* <React.Fragment>
-                    <Box backgroundColor="primary" color="white" padding="major-3">
-                        This is a box
-                    </Box>
-
-                    <div
-                        style={{
-                            backgroundColor: theme.rubik.error
-                        }}
-                    >
-                        This is a box
-                    </div>
-                </React.Fragment> */}
-
+                    {/*<Box width={'200px'} height={'100px'} background={'red'} border={'1px solid blue'}></Box>*/}
                     {children}
                 </ThemeProvider>
             </StyleSheetManager>
