@@ -13,7 +13,6 @@ export {ThemeProvider} from './theme-provider';
 // styled-components
 // styled-tools
 // reuse
-import * as Std from './styled';
 export * from './styled';
 // plugins
 export {default as getPx2vw} from './plugins/getPx2vw';
