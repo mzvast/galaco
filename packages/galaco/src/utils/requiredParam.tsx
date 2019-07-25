@@ -9,7 +9,7 @@
  * 捕获必须参数的缺失
  * @param requiredParam
  */
-export default function requiredParam(requiredParam) {
+export default function requiredParam(requiredParam): any {
     const requiredParamError = new Error(
         `Required parameter, "${requiredParam}" is missing.`
     );
