@@ -8,3 +8,6 @@ It's a toolset based on styled-components ecosystem to build React UI components
 ## Install
 
 `npm i --save galaco`
+
+## todo:
+UpdateOnlyChange

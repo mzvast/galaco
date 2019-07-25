@@ -19,4 +19,6 @@ export {default as getPx2vw} from './plugins/getPx2vw';
 
 // utils
 export {default as test1px} from './utils/test1px';
-
+export {default as requiredParam} from './utils/requiredParam';
+// sharedStyle
+export * from './shared/sharedStyle';

@@ -25,4 +25,14 @@ npm run build // 编译产出到dist目录，配置详见rollup.config.js
 
 登入 npm 账号（详见 wiki）`npm login`
 
-发布：`lerna publish --skip-git`（根据 CLI 提示处理）
+发布
+
+- `lerna version`选择版本号
+
+- `lerna publish from-package` 发布版本
+
+发布成功打tag并push
+
+- `git tag -a xxx@a.b.c -m 'publish'`
+
+- `git push origin --tags`
