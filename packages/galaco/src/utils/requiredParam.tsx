@@ -14,8 +14,8 @@ export default function requiredParam(requiredParam): any {
         `Required parameter, "${requiredParam}" is missing.`
     );
     // preserve original stack trace
-    if (typeof Error.captureStackTrace === 'function') {
-        Error.captureStackTrace(requiredParamError, requiredParam);
+    if (typeof Error['captureStackTrace'] === 'function') {
+        Error['captureStackTrace'](requiredParamError, requiredParam);
     }
     throw requiredParamError;
 }
