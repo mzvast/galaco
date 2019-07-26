@@ -5,7 +5,7 @@
         "packages/*"
     ],
     "scripts": {
-        "version": "lerna version --no-push",
+        "version": "lerna version --no-push -m 'chore(release): publish' ",
         "release": "lerna publish from-git"
     },
     "husky": {
