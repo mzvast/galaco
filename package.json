@@ -1,6 +1,13 @@
 {
     "name": "root",
     "private": true,
+    "workspaces": [
+        "packages/*"
+    ],
+    "scripts": {
+        "version": "lerna version --no-push",
+        "release": "lerna publish from-git"
+    },
     "husky": {
         "hooks": {
             "pre-commit": "lint-staged",

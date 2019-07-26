@@ -8531,10 +8531,10 @@ styled-components@^4.2.0:
     stylis-rule-sheet "^0.0.10"
     supports-color "^5.5.0"
 
-styled-components@^5.0.0-beta.5:
-  version "5.0.0-beta.6-ej4"
-  resolved "http://registry.npm.baidu-int.com/styled-components/-/styled-components-5.0.0-beta.6-ej4.tgz#7570ebbf9c9356a8cca03ea37dd94233f2e40e84"
-  integrity sha512-WaytinYy4+Zc1TKXdTlPmkAOIj58QWvjn1rdgxCSAMAR4GFLlu2m7rQXwZ6WYWYk6GJd141rnZnE2Ig3XERc5A==
+styled-components@^5.0.0-beta.8:
+  version "5.0.0-beta.8"
+  resolved "http://registry.npm.baidu-int.com/styled-components/-/styled-components-5.0.0-beta.8.tgz#ad1e672589a891987f5492cbe3ca6f480fcd99dc"
+  integrity sha512-g4MrDmfaoR2jJnA56+JSTFf1ZsDpJYdvTyQSw3HWOHoV/KlCgaSFmU8TrHfTy7DwWQskxyX//IQInNZdn4mGcA==
   dependencies:
     "@babel/helper-module-imports" "^7.0.0"
     "@babel/traverse" "^7.4.5"
