@@ -5,7 +5,10 @@
         "packages/*"
     ],
     "scripts": {
-        "version": "lerna version --no-push -m 'chore(release): publish' ",
+        "v": "lerna version --no-push -m 'chore(release): publish' ",
+        "v-alpha": "lerna version --no-push -m 'chore(release): publish' --conventional-prerelease --preid alpha",
+        "v-beta": "lerna version --no-push -m 'chore(release): publish' --conventional-prerelease --preid beta",
+        "v-graduate": "lerna version --no-push -m 'chore(release): publish' --conventional-graduate",
         "release": "lerna publish from-git"
     },
     "husky": {
