@@ -1,0 +1,133 @@
+---
+name: Modal
+route: /components/Modal
+menu: Components
+---
+
+import Modal from './Modal';
+import Demo from './Demo';
+import {Props, Playground} from 'docz';
+import {styled, css, keyframes} from '../index';
+
+# Modal
+
+`fixme: <Props of={Modal} />`
+
+```typescript
+export type Props = {
+    maskClosable: boolean; // 点击蒙层是否允许关闭
+    maskStyle: object; // 遮罩样式
+    mask: boolean; // 是否展示遮罩
+    visible: boolean;
+    show: () => void;
+    hide: () => void;
+    toggle: () => void;
+};
+```
+
+## Demo
+
+<Playground>{<Demo />}</Playground>
+
+
+## Code
+
+以render props作为API设计思路。`<WithModal/>`返回modal对象，提供了show,hide,toggle三种方法和多种状态。
+
+由于采用了React Portal，Modal能够获得组件所在的上下文。并只在show的时候render。
+
+
+
+## 正常调用
+
+```typescript jsx
+import React, {Component} from 'react';
+import {styled, css, WithModal, Box, Modal, palette} from 'galaco';
+
+const CardWrapper = styled(Box)`
+    position: absolute;
+    width: 400px;
+    height: 200px;
+    box-shadow: 0 5px 20px 0 rgba(25, 46, 99, 0.1),
+        0 10px 40px 0 rgba(52, 65, 126, 0.1);
+    border-radius: 20px;
+    padding: 10px;
+`;
+type Props = {};
+type State = {};
+class Demo extends Component<Props, State> {
+    state: State;
+    static defaultProps = {};
+
+    render() {
+        return (
+            <WithModal>
+                {modal => (
+                    <React.Fragment>
+                        <button onClick={modal.show}>show</button>
+                        <Modal {...modal} mask={false} maskClosable={false}>
+                            <CardWrapper backgroundColor="text">
+                                <button onClick={modal.hide}>close</button>
+                            </CardWrapper>
+                        </Modal>
+                    </React.Fragment>
+                )}
+            </WithModal>
+        );
+    }
+}
+export default Demo;
+
+```
+
+## 外部调用
+
+如在render函数中保存modal实例，可供外部调用。`{((this.modalInstance = modal), null)}`
+
+```typescript jsx
+import React, {Component} from 'react';
+import {styled, css, WithModal, Box, Modal, palette} from 'galaco';
+
+const CardWrapper = styled(Box)`
+    position: absolute;
+    width: 400px;
+    height: 200px;
+    box-shadow: 0 5px 20px 0 rgba(25, 46, 99, 0.1),
+        0 10px 40px 0 rgba(52, 65, 126, 0.1);
+    border-radius: 20px;
+    padding: 10px;
+`;
+type Props = {};
+type State = {};
+class Demo extends Component<Props, State> {
+    state: State;
+    static defaultProps = {};
+    modal1 = null;
+    render() {
+        return (
+            <WithModal>
+                {modal => (
+                    <React.Fragment>
+                        {((this.modal1 = modal), null)}
+                        <button onClick={modal.show}>show</button>
+                        <Modal {...modal}>
+                            <CardWrapper backgroundColor="text">
+                                <button onClick={modal.hide}>close</button>
+                            </CardWrapper>
+                        </Modal>
+                    </React.Fragment>
+                )}
+            </WithModal>
+        );
+    }
+
+    componentDidMount() {
+        setTimeout(() => {
+            this.modal1 && this.modal1.show();
+        }, 2000);
+    }
+}
+export default Demo;
+
+
+```

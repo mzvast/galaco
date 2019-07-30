@@ -22,3 +22,10 @@ export {default as test1px} from './utils/test1px';
 export {default as requiredParam} from './utils/requiredParam';
 // sharedStyle
 export * from './shared/sharedStyle';
+
+// hidden
+export * from './hidden/useHiddenState';
+// modal
+export {default as Modal} from './modal/Modal';
+export * from './modal/WithModal';
+export * from './modal/ModalState';
