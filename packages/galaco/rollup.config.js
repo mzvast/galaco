@@ -22,7 +22,9 @@ export default {
     external: [
         ...Object.keys(pkg.dependencies || {}),
         ...Object.keys(pkg.devDependencies || {}),
-        ...Object.keys(pkg.peerDependencies || {})
+        ...Object.keys(pkg.peerDependencies || {}),
+        'lodash/get',
+        'lodash/camelCase'
     ],
     plugins: [
         typescript({

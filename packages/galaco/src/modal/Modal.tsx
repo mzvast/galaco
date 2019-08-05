@@ -7,7 +7,8 @@
 /* eslint-disable max-len,babel/new-cap,operator-linebreak,fecs-export-on-declare,space-before-function-paren */
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import {Box, styled, css} from '../index';
+import {styled, css} from '../styled';
+import {Box} from '../primitives';
 import {HiddenStateReturn} from '../hidden/useHiddenState';
 
 const Mask = styled(Box)`
