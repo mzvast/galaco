@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/mzvast/galaco/compare/galaco@0.5.0-alpha.0...galaco@0.5.0) (2019-08-05)
+
+
+### Bug Fixes
+
+* modal循环依赖 ([68678e3](https://github.com/mzvast/galaco/commit/68678e3))
+
+
+
+
+
 # [0.5.0-alpha.0](https://github.com/mzvast/galaco/compare/galaco@0.4.1-alpha.2...galaco@0.5.0-alpha.0) (2019-07-30)
 
 
