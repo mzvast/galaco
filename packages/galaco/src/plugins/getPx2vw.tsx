@@ -11,13 +11,13 @@
  * @param pWidth 设计稿宽度，单位px
  */
 export default function getPx2vw(pWidth: number) {
-// -2 /* post-process context */
-// -1 /* preparation context */
-// 0  /* newline context */
-//
-// 1  /* property context */
-// 2  /* selector block context */
-// 3  /* @at-rule block context */
+    // -2 /* post-process context */
+    // -1 /* preparation context */
+    // 0  /* newline context */
+    //
+    // 1  /* property context */
+    // 2  /* selector block context */
+    // 3  /* @at-rule block context */
     /**
      * px2vw
      * @param context
@@ -33,12 +33,12 @@ export default function getPx2vw(pWidth: number) {
         switch (context) {
             case 1:
                 // console.log('plugin::1content', content);
-                return content.replace(/([0-9.]+)px/g, function (match, p1) {
+                return content.replace(/([0-9.]+)px/g, function(match, p1) {
                     // console.log('plugin::match,p1', match, p1);
                     const val = Number(p1);
 
                     if (val > 1) {
-                        return val * 100 / pWidth + 'vw';
+                        return (val * 100) / pWidth + 'vw';
                     }
 
                     if (val === 0) {
@@ -46,14 +46,12 @@ export default function getPx2vw(pWidth: number) {
                     }
                     // 0<val<=1
                     if (devicePixelRatio > 1) {
-                        return '0.5px';
+                        return val / devicePixelRatio + 'px';
                     }
                     return '1px';
                 });
         }
-    };
+    }
     window['galacoMoGaiCssPlugin'] = px2vw; // MoGai Hook
-    return px2vw
+    return px2vw;
 }
-
-
