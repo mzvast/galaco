@@ -29,3 +29,4 @@ export * from './hidden/useHiddenState';
 export {default as Modal} from './modal/Modal';
 export * from './modal/WithModal';
 export * from './modal/ModalState';
+export {default as useLockBodyScroll} from './modal/useLockBodyScroll';

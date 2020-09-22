@@ -10,6 +10,7 @@ import ReactDOM from 'react-dom';
 import {styled, css} from '../styled';
 import {Box} from '../primitives';
 import {HiddenStateReturn} from '../hidden/useHiddenState';
+import useLockBodyScroll from './useLockBodyScroll';
 
 const Mask = styled(Box)`
     z-index: 1000;
@@ -31,54 +32,43 @@ const Content = styled(Box)`
     transform: translate(-50%, -50%);
 `;
 // API 借鉴 https://ant.design/components/modal-cn/
-
+function ModalContent({children}: {children: any}) {
+    useLockBodyScroll();
+    return <Content>{children}</Content>;
+}
 export type Props = {
     maskClosable: boolean; // 点击蒙层是否允许关闭
     maskStyle: object; // 遮罩样式
     mask: boolean; // 是否展示遮罩
+    children: any;
 } & HiddenStateReturn;
-interface State {}
 
-class Modal extends Component<Props, State> {
-    state: State;
-
-    static defaultProps = {
-        maskClosable: true,
-        maskStyle: {},
-        mask: true
-    };
-
-    render() {
-        const {visible, children, maskStyle, mask} = this.props;
-        return (
-            <>
-                {visible &&
-                    ReactDOM.createPortal(
-                        <>
-                            {mask && (
-                                <Mask
-                                    className={'galaco-modal-mask'}
-                                    onClick={this.onMaskClick}
-                                    {...maskStyle}
-                                />
-                            )}
-
-                            <Content>{children}</Content>
-                        </>,
-                        document.body
-                    )}
-            </>
-        );
-    }
-
-    onMaskClick = e => {
-        const {maskClosable} = this.props;
+function Modal({
+    visible,
+    maskClosable = false,
+    maskStyle = {},
+    mask = true,
+    hide,
+    show,
+    toggle,
+    children
+}: Props) {
+    const onMaskClick = e => {
         if (!maskClosable) return;
-        // console.log('e::e', e.target.classList);
-        if (e.target.classList.contains('galaco-modal-mask')) {
-            this.props.hide && this.props.hide();
-        }
+        hide && hide();
     };
+    return (
+        <>
+            {visible &&
+                ReactDOM.createPortal(
+                    <>
+                        {mask && <Mask onClick={onMaskClick} {...maskStyle} />}
+                        <ModalContent>{children}</ModalContent>
+                    </>,
+                    document.body
+                )}
+        </>
+    );
 }
 
 export default Modal;

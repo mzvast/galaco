@@ -12,8 +12,6 @@ const CardWrapper = styled(Box)`
     position: absolute;
     width: 400px;
     height: 200px;
-    //background: #ffffff;
-    //background: ${palette('text')};
     box-shadow: 0 5px 20px 0 rgba(25, 46, 99, 0.1),
         0 10px 40px 0 rgba(52, 65, 126, 0.1);
     border-radius: 20px;
