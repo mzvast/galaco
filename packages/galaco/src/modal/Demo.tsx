@@ -9,13 +9,13 @@ import React, {Component} from 'react';
 import {styled, css, WithModal, Box, Modal, palette} from '../index';
 
 const CardWrapper = styled(Box)`
-    position: absolute;
     width: 400px;
     height: 200px;
     box-shadow: 0 5px 20px 0 rgba(25, 46, 99, 0.1),
         0 10px 40px 0 rgba(52, 65, 126, 0.1);
     border-radius: 20px;
-    padding: 10px;
+    border: solid red 1px;
+    background-color: pink;
 `;
 interface Props {}
 interface State {}
@@ -29,8 +29,8 @@ class Demo extends Component<Props, State> {
                 {modal => (
                     <React.Fragment>
                         <button onClick={modal.show}>show</button>
-                        <Modal {...modal}>
-                            <CardWrapper backgroundColor="text">
+                        <Modal {...modal} maskClosable>
+                            <CardWrapper>
                                 <button onClick={modal.hide}>close</button>
                             </CardWrapper>
                         </Modal>
