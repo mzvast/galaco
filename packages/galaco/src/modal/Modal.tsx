@@ -37,10 +37,10 @@ function ModalContent({children}: {children: any}) {
     return <Content>{children}</Content>;
 }
 export type Props = {
-    maskClosable: boolean; // 点击蒙层是否允许关闭
-    maskStyle: object; // 遮罩样式
-    mask: boolean; // 是否展示遮罩
-    children: any;
+    maskClosable?: boolean; // 点击蒙层是否允许关闭
+    maskStyle?: object; // 遮罩样式
+    mask?: boolean; // 是否展示遮罩
+    children?: any;
 } & HiddenStateReturn;
 
 function Modal({

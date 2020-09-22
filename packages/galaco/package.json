@@ -34,6 +34,7 @@
         "@types/styled-components": "^4.1.10",
         "docz": "^1.2.0",
         "docz-theme-default": "^1.2.0",
+        "gensync": "^1.0.0-beta.1",
         "gh-pages": "^2.0.1",
         "prop-types": "^15.7.2",
         "rollup": "^1.16.2",
@@ -43,6 +44,6 @@
     "peerDependencies": {
         "react": "^16.8.6",
         "react-dom": "^16.8.6",
-        "styled-components": "^5.0.0-beta.8"
+        "styled-components": "^5.2.0"
     }
 }
