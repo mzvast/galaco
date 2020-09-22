@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.1](https://github.com/mzvast/galaco/compare/galaco@0.6.0...galaco@0.6.1) (2020-09-22)
+
+
+### Bug Fixes
+
+* **modal:** typings and docz parse problem& upgrade styled to 5.2 ([451a4a8](https://github.com/mzvast/galaco/commit/451a4a8))
+
+
+
+
+
 # [0.6.0](https://github.com/mzvast/galaco/compare/galaco@0.5.0...galaco@0.6.0) (2020-09-22)
 
 
