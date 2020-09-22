@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/mzvast/galaco/compare/galaco@0.5.0...galaco@0.6.0) (2020-09-22)
+
+
+### Bug Fixes
+
+* getPx2vw devicePixelRatio used ([c5624ec](https://github.com/mzvast/galaco/commit/c5624ec))
+
+
+### Features
+
+* **modal:** 用hook重写modal,增加useLockbodyScroll ([e0dc610](https://github.com/mzvast/galaco/commit/e0dc610))
+
+
+
+
+
 ## [0.5.1](https://github.com/mzvast/galaco/compare/galaco@0.5.0...galaco@0.5.1) (2019-08-13)
 
 
