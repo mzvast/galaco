@@ -5,6 +5,7 @@
  * @create date 2019-06-25 21:24
  */
 /* eslint-disable max-len,babel/new-cap,operator-linebreak,fecs-export-on-declare,space-before-function-paren */
+import window from 'utils/window';
 
 export default function() {
     if (window.devicePixelRatio && devicePixelRatio >= 2) {

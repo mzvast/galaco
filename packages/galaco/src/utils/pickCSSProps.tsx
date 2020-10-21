@@ -1,4 +1,4 @@
-import CSSProps from "./CSSProps";
+import CSSProps from './CSSProps';
 import MoGaiCssProps from './MoGaiCssProps';
 
 function pickCSSProps<P extends object>(props: P) {
