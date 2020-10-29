@@ -5,7 +5,7 @@
  * @create date 2019-07-11 12:14
  */
 /* eslint-disable max-len,babel/new-cap,operator-linebreak,fecs-export-on-declare,space-before-function-paren */
-import window from 'utils/window';
+import window from '../utils/window';
 export default function(prop: any) {
     if (typeof prop === 'number') {
         return prop;

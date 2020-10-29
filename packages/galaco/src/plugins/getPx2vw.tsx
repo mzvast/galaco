@@ -5,7 +5,7 @@
  * @create date 2019-06-27 16:17
  */
 /* eslint-disable max-len,babel/new-cap,operator-linebreak,fecs-export-on-declare,space-before-function-paren */
-import window from 'utils/window';
+import window from '../utils/window';
 /**
  * getPx2vw
  * @param pWidth 设计稿宽度，单位px
