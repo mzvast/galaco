@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.3-alpha.2](https://github.com/mzvast/galaco/compare/galaco@0.6.3-alpha.1...galaco@0.6.3-alpha.2) (2020-11-02)
+
+
+### Bug Fixes
+
+* **plugin:** window undefine in plugin ([cbb0f4c](https://github.com/mzvast/galaco/commit/cbb0f4c))
+
+
+
+
+
 ## [0.6.3-alpha.1](https://github.com/mzvast/galaco/compare/galaco@0.6.3-alpha.0...galaco@0.6.3-alpha.1) (2020-10-29)
 
 **Note:** Version bump only for package galaco

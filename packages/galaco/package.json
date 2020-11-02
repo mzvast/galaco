@@ -1,7 +1,7 @@
 {
     "name": "galaco",
     "repository": "mzvast/galaco",
-    "version": "0.6.3-alpha.1",
+    "version": "0.6.3-alpha.2",
     "main": "dist/index.js",
     "module": "dist/index.es.js",
     "files": [
