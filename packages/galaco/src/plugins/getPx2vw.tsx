@@ -45,7 +45,7 @@ export default function getPx2vw(pWidth: number) {
                         return '0';
                     }
                     // 0<val<=1
-                    if (devicePixelRatio > 1) {
+                    if (window && window.devicePixelRatio > 1) {
                         return val / devicePixelRatio + 'px';
                     }
                     return '1px';
