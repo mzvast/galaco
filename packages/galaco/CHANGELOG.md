@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.3-alpha.3](https://github.com/mzvast/galaco/compare/galaco@0.6.3-alpha.2...galaco@0.6.3-alpha.3) (2020-11-04)
+
+
+### Bug Fixes
+
+* **modal:** support styling for contentwrap ([d649abf](https://github.com/mzvast/galaco/commit/d649abf))
+
+
+
+
+
 ## [0.6.3-alpha.2](https://github.com/mzvast/galaco/compare/galaco@0.6.3-alpha.1...galaco@0.6.3-alpha.2) (2020-11-02)
 
 
