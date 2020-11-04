@@ -11,6 +11,7 @@ import {styled, css} from '../styled';
 import {Box} from '../primitives';
 import {HiddenStateReturn} from '../hidden/useHiddenState';
 import useLockBodyScroll from './useLockBodyScroll';
+import {CSSProperties} from 'styled-components';
 const Wrap: any = styled(Box)`
     position: fixed;
     z-index: 999;
@@ -46,7 +47,7 @@ const ModalWrap: any = styled(Box)`
     }
     /* pointer-events: none; */
 `;
-const ContentOutter = styled(Box)`
+const ContentOuter = styled(Box)`
     position: relative;
     top: 0;
     left: 50%;
@@ -61,18 +62,29 @@ const ContentInner: any = styled(Box)`
     pointer-events: auto;
 `;
 // API 借鉴 https://ant.design/components/modal-cn/
-function ModalContent({children}: {children: any}) {
+function ModalContent({
+    children,
+    contentStyle
+}: {
+    children: any;
+    contentStyle: any;
+}) {
     useLockBodyScroll();
     return (
-        <ContentOutter className="galaco-modal-content">
+        <ContentOuter {...contentStyle} className="galaco-modal-content">
             <ContentInner>{children}</ContentInner>
-        </ContentOutter>
+        </ContentOuter>
     );
 }
 export type Props = {
-    maskClosable?: boolean; // 点击蒙层是否允许关闭
-    maskStyle?: object; // 遮罩样式
-    mask?: boolean; // 是否展示遮罩
+    /**点击蒙层是否允许关闭 */
+    maskClosable?: boolean;
+    /**遮罩样式 */
+    maskStyle?: CSSProperties;
+    /** 内容容器样式，可用于控制modal在页面中的位置 */
+    contentStyle?: CSSProperties;
+    /**是否展示遮罩 */
+    mask?: boolean;
     children?: any;
 } & HiddenStateReturn;
 
@@ -80,6 +92,7 @@ function Modal({
     visible,
     maskClosable = false,
     maskStyle = {},
+    contentStyle = {},
     mask = true,
     hide,
     show,
@@ -106,7 +119,9 @@ function Modal({
                             className="galaco-modal-wrap"
                             onClick={onMaskClick}
                         >
-                            <ModalContent>{children}</ModalContent>
+                            <ModalContent contentStyle={contentStyle}>
+                                {children}
+                            </ModalContent>
                         </ModalWrap>
                     </Wrap>,
                     document.body
