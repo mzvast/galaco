@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.3-alpha.4](https://github.com/mzvast/galaco/compare/galaco@0.6.3-alpha.3...galaco@0.6.3-alpha.4) (2020-11-26)
+
+
+### Bug Fixes
+
+* **modal:** support disable modal scroll prevent ([1a12669](https://github.com/mzvast/galaco/commit/1a12669))
+
+
+
+
+
 ## [0.6.3-alpha.3](https://github.com/mzvast/galaco/compare/galaco@0.6.3-alpha.2...galaco@0.6.3-alpha.3) (2020-11-04)
 
 
