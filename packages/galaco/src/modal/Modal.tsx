@@ -10,8 +10,9 @@ import ReactDOM from 'react-dom';
 import {styled, css} from '../styled';
 import {Box} from '../primitives';
 import {HiddenStateReturn} from '../hidden/useHiddenState';
-import useLockBodyScroll from './useLockBodyScroll';
+import useLockBodyScroll from '../utils/useLockBodyScroll';
 import {CSSProperties} from 'styled-components';
+
 const Wrap: any = styled(Box)`
     position: fixed;
     z-index: 999;
@@ -69,12 +70,15 @@ function ModalContent({
     children: any;
     contentStyle: any;
 }) {
-    useLockBodyScroll();
     return (
         <ContentOuter {...contentStyle} className="galaco-modal-content">
             <ContentInner>{children}</ContentInner>
         </ContentOuter>
     );
+}
+function BodyLockWrap() {
+    useLockBodyScroll();
+    return null;
 }
 export type Props = {
     /**点击蒙层是否允许关闭 */
@@ -86,6 +90,8 @@ export type Props = {
     /**是否展示遮罩 */
     mask?: boolean;
     children?: any;
+    /**是否锁定背景滑动，移动端兼容性一般，如有问题可以禁用，使用<BSL></BSL>组件包裹 */
+    useLock?: boolean;
 } & HiddenStateReturn;
 
 function Modal({
@@ -97,7 +103,8 @@ function Modal({
     hide,
     show,
     toggle,
-    children
+    children,
+    useLock = true
 }: Props) {
     const onMaskClick = e => {
         if (!maskClosable) return;
@@ -119,6 +126,7 @@ function Modal({
                             className="galaco-modal-wrap"
                             onClick={onMaskClick}
                         >
+                            {useLock && <BodyLockWrap />}
                             <ModalContent contentStyle={contentStyle}>
                                 {children}
                             </ModalContent>
