@@ -52,5 +52,6 @@ export default function getPx2vw(pWidth: number) {
                 });
         }
     }
+    Object.defineProperty(px2vw, 'name', {value: 'galacoPx2vw'});
     return px2vw;
 }
