@@ -1,7 +1,7 @@
 import CSSProps from './CSSProps';
 import MoGaiCssProps from './MoGaiCssProps';
 
-function pickCSSProps<P extends object>(props: P) {
+function pickCSSProps<P extends object>(props: P, plugins) {
     let filteredProps: Partial<P> | undefined;
 
     for (const prop in props) {
@@ -9,7 +9,7 @@ function pickCSSProps<P extends object>(props: P) {
             if (!filteredProps) {
                 filteredProps = {};
             }
-            filteredProps[prop] = MoGaiCssProps(props[prop]);
+            filteredProps[prop] = MoGaiCssProps(props[prop], plugins);
         }
     }
 

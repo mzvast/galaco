@@ -5,6 +5,7 @@ route: /primitives
 
 import {Playground} from 'docz';
 import {Block, Box, Flex, Grid, Inline, InlineBlock, InlineFlex} from '../..';
+import StylisBox from '../components/StylisBox.tsx'
 
 # Box
 
@@ -15,6 +16,13 @@ Box 包含了一个`<div>`元素和 reset 样式。支持传入 CSSProps，支�
 
 <Playground>
     <Box>This is a box</Box>
+</Playground>
+
+## StyleSheetManager Stylis 插件 整合:
+
+<Playground>
+   <StylisBox></StylisBox>
+    
 </Playground>
 
 ## CSSProps 整合:

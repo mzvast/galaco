@@ -16,6 +16,9 @@ export {ThemeProvider} from './theme-provider';
 export * from './styled';
 // plugins
 export {default as getPx2vw} from './plugins/getPx2vw';
+export {
+    default as GalacoStyleSheetManager
+} from './plugins/GalacoStyleSheetManager';
 
 // utils
 export {default as test1px} from './utils/test1px';

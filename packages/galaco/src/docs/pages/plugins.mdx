@@ -9,9 +9,9 @@ route: /plugins
 
 如果是retina屏幕，1px会转换成成0.5px。
 
-推荐的使用方式,通过给getPx2vw传入`设计稿宽度px数值`来创建插件实例。将该实例传入StyleSheetManager(要求Styled-component版本v5+)的stylisPlugins插件
+推荐的使用方式,通过给getPx2vw传入`设计稿宽度px数值`来创建插件实例。将该实例传入GalacoStyleSheetManager(要求Styled-component版本v5+)的stylisPlugins插件
 
-该插件自动绑定到Box的CSSProps解析。如果不需要该绑定（一般不建议取消绑定），请在插件创建后执行`window['galacoMoGaiCssPlugin'] = null`
+该插件自动绑定到Box的CSSProps解析。
 ```tsx
 import {getPx2vw} from 'galaco';
 

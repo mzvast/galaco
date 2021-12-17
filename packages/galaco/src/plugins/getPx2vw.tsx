@@ -52,6 +52,5 @@ export default function getPx2vw(pWidth: number) {
                 });
         }
     }
-    window['galacoMoGaiCssPlugin'] = px2vw; // MoGai Hook
     return px2vw;
 }

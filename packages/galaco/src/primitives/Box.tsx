@@ -11,24 +11,27 @@ import styled from '../styled';
 import use from 'reuse';
 import {Omit} from '../utils/types';
 import buildColorFromPalette from '../utils/buildColorFromPalette';
-
-type CSSProperties = { [K in keyof typeof CSSProps]?: string | number };
+import {StylisContext} from '../plugins/StylisContext';
+import {useContext} from 'react';
+type CSSProperties = {[K in keyof typeof CSSProps]?: string | number};
 
 export type BoxProps = Omit<React.HTMLProps<any>, 'as'> &
     CSSProperties & {
-    use?: keyof JSX.IntrinsicElements | React.ComponentType<any>;
-    children?: React.ReactNode;
-    // opaque?: boolean;
-    palette?: string;
-    // tone?: number;
-    elementRef?: React.Ref<any>;
-};
+        use?: keyof JSX.IntrinsicElements | React.ComponentType<any>;
+        children?: React.ReactNode;
+        // opaque?: boolean;
+        palette?: string;
+        // tone?: number;
+        elementRef?: React.Ref<any>;
+    };
 
 const BoxComponent = React.forwardRef<HTMLElement, BoxProps>(
     ({use: T, ...props}, ref) => {
         if (!T) return null;
 
-        const style = pickCSSProps(props);
+        const plugins = useContext(StylisContext);
+
+        const style = pickCSSProps(props, plugins);
 
         if (typeof T === 'string') {
             const className = dedupeClassName(props.className);
@@ -50,7 +53,6 @@ const BoxComponent = React.forwardRef<HTMLElement, BoxProps>(
     }
 );
 
-
 const Box = styled(BoxComponent)<BoxProps>`
     margin: unset;
     padding: unset;
@@ -63,8 +65,6 @@ const Box = styled(BoxComponent)<BoxProps>`
         outline: none;
     }
     ${theme('Box')};
-   
 `;
-
 
 export default use(Box, 'div');
