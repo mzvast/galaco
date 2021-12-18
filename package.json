@@ -14,7 +14,7 @@
         "version:alpha": "lerna version --no-push -m 'chore(release): publish' --conventional-prerelease --preid alpha",
         "version:beta": "lerna version --no-push -m 'chore(release): publish' --conventional-prerelease --preid beta",
         "version:graduate": "lerna version --no-push -m 'chore(release): publish' --conventional-graduate",
-        "release": "lerna publish from-git",
+        "release": "lerna publish from-git --yes --no-verify-access",
         "build": "yarn build:packages && yarn build:website",
         "build:packages": "lerna run build --no-private",
         "build:website": "yarn workspace website build",
