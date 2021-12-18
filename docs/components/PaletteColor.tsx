@@ -1,6 +1,5 @@
 import * as React from 'react';
-import {withTheme} from '../../src/styled';
-import {Box, Flex} from '../../src';
+import {withTheme, Box, Flex} from 'galaco';
 
 export interface PaletteColorProps {
     palette: string;

@@ -6,7 +6,7 @@
  */
 /* eslint-disable max-len,babel/new-cap,operator-linebreak,fecs-export-on-declare,space-before-function-paren */
 import React, {Component} from 'react';
-import {styled, css, WithModal, Box, Modal, palette} from '../../src/index';
+import {styled, css, WithModal, Box, Modal, palette} from 'galaco';
 
 const CardWrapper = styled(Box)`
     width: 400px;

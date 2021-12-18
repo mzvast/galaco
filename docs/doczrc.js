@@ -5,13 +5,11 @@
  * @create date 2019-02-21 16:29:48
  */
 /* eslint-disable max-len,babel/new-cap,operator-linebreak,fecs-export-on-declare,space-before-function-paren */
-import pkg from './package.json';
-const libName = pkg.name;
 export default {
     typescript: true,
-    wrapper: 'docs/wrapper',
+    wrapper: 'wrapper',
     codeSandbox: false,
-    base: `/${libName}/`,
+    base: `/`,
     ordering: 'ascending',
-    description: pkg.description
+    description: 'galaco docs'
 };

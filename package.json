@@ -2,7 +2,8 @@
     "name": "root",
     "private": true,
     "workspaces": [
-        "packages/*"
+        "packages/*",
+        "docs"
     ],
     "scripts": {
         "canary": "yarn canary:bumpVersion && yarn canary:publish",
@@ -14,7 +15,7 @@
         "v-beta": "lerna version --no-push -m 'chore(release): publish' --conventional-prerelease --preid beta",
         "v-graduate": "lerna version --no-push -m 'chore(release): publish' --conventional-graduate",
         "release": "lerna publish from-git",
-        "deploy": "cd ./packages/galaco && npm run deploy"
+        "deploy": "cd ./docs && npm run deploy"
     },
     "husky": {
         "hooks": {
