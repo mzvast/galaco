@@ -8,7 +8,8 @@
     "**/example/**",
     "**/*.md",
     "**/*.lock",
-    "**/*lock.json"
+    "**/*lock.json",
+    "package.json"
   ],
   "npmClient": "yarn",
   "version": "independent",
