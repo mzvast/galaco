@@ -1,6 +1,6 @@
 import React from 'react';
-import {styled, css, keyframes, Box, palette, Flex} from '../../';
-import {getPx2vw, StyleSheetManager} from '../..';
+import {styled, css, keyframes, Box, palette, Flex} from '../../src';
+import {getPx2vw, StyleSheetManager} from '../../src';
 import GalacoStyleSheetManager from '../../src/plugins/GalacoStyleSheetManager';
 interface Props {}
 const StylisBox: React.FC<Props> = () => {
