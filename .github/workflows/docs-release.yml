@@ -31,5 +31,6 @@ jobs:
         run: |
           yarn install --frozen-lockfile
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-          npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
+          cd docs
+          yarn run deploy -- -u "github-actions-bot <support+actions@github.com>"
           
