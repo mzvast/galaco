@@ -3,7 +3,7 @@
     "private": true,
     "workspaces": [
         "packages/*",
-        "docs"
+        "website"
     ],
     "scripts": {
         "canary": "yarn canary:bumpVersion && yarn canary:publish",
@@ -14,7 +14,11 @@
         "v-alpha": "lerna version --no-push -m 'chore(release): publish' --conventional-prerelease --preid alpha",
         "v-beta": "lerna version --no-push -m 'chore(release): publish' --conventional-prerelease --preid beta",
         "v-graduate": "lerna version --no-push -m 'chore(release): publish' --conventional-graduate",
-        "release": "lerna publish from-git"
+        "release": "lerna publish from-git",
+        "build": "yarn build:packages && yarn build:website",
+        "build:packages": "lerna run build --no-private",
+        "build:website": "yarn workspace website build",
+        "deploy:website": "yarn workspace website deploy"
     },
     "husky": {
         "hooks": {

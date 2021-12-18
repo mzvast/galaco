@@ -4,11 +4,11 @@ on:
   push:
     branches: [ master ]
     paths:
-      - docs/** 
+      - website/** 
   pull_request:
     branches: [ master ]
     paths:
-      - docs/** 
+      - website/** 
   workflow_dispatch:
 
 jobs:
@@ -24,13 +24,18 @@ jobs:
         with:
           node-version: '14.x'
           cache: 'yarn'
-          
+
+      - name: Install
+        run:  yarn --frozen-lockfile
+
+      - name: Build
+        run: |
+          yarn build:packages
+
       - name: Release to GitHub Pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          yarn install --frozen-lockfile
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-          cd docs
-          yarn run deploy -- -u "github-actions-bot <support+actions@github.com>"
+          yarn deploy:website -- -u "github-actions-bot <support+actions@github.com>"
           

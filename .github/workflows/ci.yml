@@ -30,10 +30,9 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
         
-    - name: Install deps
+    - name: Install
       run:  yarn --frozen-lockfile
     
-    - name: Build galaco
+    - name: Build
       run: |
-        cd packages/galaco
-        yarn run build
+        yarn build:packages
