@@ -7,9 +7,9 @@
 import React, {useState} from 'react';
 import {StyleSheetManager} from 'styled-components';
 import {StylisContextProvider} from './StylisContext';
-type Props = {
+interface Props {
     stylisPlugins: any[]; //插件数组
-};
+}
 const StylisPluginManager: React.FC<Props> = ({stylisPlugins, children}) => {
     // todo: 会有更新性能问题么
     return (

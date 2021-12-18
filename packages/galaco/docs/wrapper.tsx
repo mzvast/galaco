@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {StyleSheetManager, styled, Box, getPx2vw} from '..';
-import ThemeProvider from '../theme-provider';
+import {StyleSheetManager, styled, Box, getPx2vw} from '../src';
+import ThemeProvider from '../src/theme-provider';
 
 const cssPlugin = getPx2vw(1280);
 

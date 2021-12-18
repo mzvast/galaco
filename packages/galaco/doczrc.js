@@ -9,9 +9,9 @@ import pkg from './package.json';
 const libName = pkg.name;
 export default {
     typescript: true,
-    wrapper: 'src/docs/wrapper',
+    wrapper: 'docs/wrapper',
     codeSandbox: false,
     base: `/${libName}/`,
     ordering: 'ascending',
-    description: pkg.description,
+    description: pkg.description
 };

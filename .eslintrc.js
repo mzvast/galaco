@@ -30,7 +30,8 @@ module.exports = {
         '@typescript-eslint/camelcase': 'off',
         'react/display-name': 'off',
         '@typescript-eslint/no-unused-vars': 'off',
-        '@typescript-eslint/no-var-requires': 'off'
+        '@typescript-eslint/no-var-requires': 'off',
+        'react/prop-types': 'off'
     },
     settings: {
         react: {

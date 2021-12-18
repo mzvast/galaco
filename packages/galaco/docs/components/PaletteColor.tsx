@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {withTheme} from '../../styled';
+import {withTheme} from '../../src/styled';
 import {Box, Flex} from '../../';
 
-export type PaletteColorProps = {
+export interface PaletteColorProps {
     palette: string;
     theme: {palette: any};
-};
+}
 
 const PaletteColor: React.FunctionComponent<PaletteColorProps> = ({
     palette,
