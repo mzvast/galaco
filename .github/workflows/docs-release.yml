@@ -1,10 +1,14 @@
-name: doc
+name: Docs Release
 
 on:
   push:
     branches: [ master ]
+    paths:
+      - packages/galaco/docs/** 
   pull_request:
     branches: [ master ]
+    paths:
+      - packages/galaco/docs/** 
 
 jobs:
   build:
