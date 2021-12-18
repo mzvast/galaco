@@ -3637,8 +3637,8 @@ code-point-at@^1.0.0:
   resolved "https://registry.npm.taobao.org/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
 
 codemirror@^5.46.0:
-  version "5.48.2"
-  resolved "https://registry.npm.taobao.org/codemirror/-/codemirror-5.48.2.tgz#a9dd3d426dea4cd59efd59cd98e20a9152a30922"
+  version "5.64.0"
+  resolved "https://registry.yarnpkg.com/codemirror/-/codemirror-5.64.0.tgz#182eec65b62178e3cd1de8f9d88ab819cfe5f625"
 
 codesandboxer-fs@^1.0.1:
   version "1.0.3"
