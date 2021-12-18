@@ -1,3 +1,7 @@
+[![CI](https://github.com/mzvast/galaco/actions/workflows/ci.yml/badge.svg)](https://github.com/mzvast/galaco/actions/workflows/ci.yml)
+[![Canary Release](https://github.com/mzvast/galaco/actions/workflows/canary-release.yml/badge.svg)](https://github.com/mzvast/galaco/actions/workflows/canary-release.yml)
+[![Docs Release](https://github.com/mzvast/galaco/actions/workflows/docs-release.yml/badge.svg)](https://github.com/mzvast/galaco/actions/workflows/docs-release.yml)
+
 # galaco 🌈
 
 ## What's this for
