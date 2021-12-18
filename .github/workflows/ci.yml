@@ -4,7 +4,7 @@ on:
   push:
     branches: [ master ]
   pull_request:
-    branches: [ master ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -18,7 +18,7 @@ jobs:
     name: "Build&Test: node-${{ matrix.node-version }}, ${{ matrix.os }}"
     steps:
     - name: Checkout
-    - uses: actions/checkout@v2
+      uses: actions/checkout@v2
     
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
@@ -27,9 +27,9 @@ jobs:
         cache: 'yarn'
         
     - name: Install deps
-    - run:  yarn --frozen-lockfile
+      run:  yarn --frozen-lockfile
     
     - name: Build galaco
-    - run: |
+      run: |
         cd packages/galaco
         yarn run build
