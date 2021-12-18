@@ -1,21 +1,7 @@
 {
-  "vendors.js": "/galaco/static/js/vendors.d0be19ca.js",
-  "vendors.js.map": "/galaco/static/js/vendors.583a7229ac207ef811fb.js.map",
-  "app.js": "/galaco/static/js/app.583a7229ac207ef811fb.js",
-  "app.js.map": "/galaco/static/js/app.583a7229ac207ef811fb.js.map",
-  "src-docs-pages-api.js": "/galaco/static/js/src-docs-pages-api.781bc9eb.js",
-  "src-docs-pages-api.js.map": "/galaco/static/js/src-docs-pages-api.583a7229ac207ef811fb.js.map",
-  "src-docs-pages-credits.js": "/galaco/static/js/src-docs-pages-credits.6df6bee9.js",
-  "src-docs-pages-credits.js.map": "/galaco/static/js/src-docs-pages-credits.583a7229ac207ef811fb.js.map",
-  "src-docs-pages-export.js": "/galaco/static/js/src-docs-pages-export.cd6687bf.js",
-  "src-docs-pages-export.js.map": "/galaco/static/js/src-docs-pages-export.583a7229ac207ef811fb.js.map",
-  "src-docs-pages-palette.js": "/galaco/static/js/src-docs-pages-palette.389aa9bd.js",
-  "src-docs-pages-palette.js.map": "/galaco/static/js/src-docs-pages-palette.583a7229ac207ef811fb.js.map",
-  "src-docs-pages-plugins.js": "/galaco/static/js/src-docs-pages-plugins.9070e594.js",
-  "src-docs-pages-plugins.js.map": "/galaco/static/js/src-docs-pages-plugins.583a7229ac207ef811fb.js.map",
-  "src-docs-pages-primitives.js": "/galaco/static/js/src-docs-pages-primitives.5df17bee.js",
-  "src-docs-pages-primitives.js.map": "/galaco/static/js/src-docs-pages-primitives.583a7229ac207ef811fb.js.map",
-  "src-modal-modal.js": "/galaco/static/js/src-modal-modal.c6c93392.js",
-  "src-modal-modal.js.map": "/galaco/static/js/src-modal-modal.583a7229ac207ef811fb.js.map",
-  "index.html": "/galaco/index.html"
+  "vendors.js": "/static/js/vendors.471d0095.js",
+  "vendors.js.map": "/static/js/vendors.ad432fd2c430924366b2.js.map",
+  "app.js": "/static/js/app.ad432fd2c430924366b2.js",
+  "app.js.map": "/static/js/app.ad432fd2c430924366b2.js.map",
+  "index.html": "/index.html"
 }
