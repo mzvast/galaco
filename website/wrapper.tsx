@@ -21,6 +21,37 @@ const theme = {
 };
 
 class Wrapper extends React.Component<Props, State> {
+    componentDidMount() {
+        (function(l) {
+            if (l.search) {
+                var q = {};
+                l.search
+                    .slice(1)
+                    .split('&')
+                    .forEach(function(v) {
+                        var a = v.split('=');
+                        q[a[0]] = a
+                            .slice(1)
+                            .join('=')
+                            .replace(/~and~/g, '&');
+                    });
+                //@ts-ignore
+                if (q.p !== undefined) {
+                    window.history.replaceState(
+                        null,
+                        null,
+                        l.pathname.slice(0, -1) +
+                            //@ts-ignore
+                            (q.p || '') +
+                            //@ts-ignore
+                            (q.q ? '?' + q.q : '') +
+                            l.hash
+                    );
+                }
+            }
+        })(window.location);
+    }
+
     render() {
         const {children} = this.props;
         return (
