@@ -30,13 +30,12 @@ class Wrapper extends React.Component<Props, State> {
     render() {
         const {children} = this.props;
         return (
-            //@ts-ignore
-            <StyleSheetManager stylisPlugins={[cssPlugin]}>
+            <GalacoStyleSheetManager stylisPlugins={[cssPlugin]}>
                 <TestObj>
                     <Box>testObj</Box>
                     <Box width={'200px'} height={'100px'} background={'red'} border={'1px solid blue'}></Box>
                 </TestObj>
-            </StyleSheetManager>
+            </GalacoStyleSheetManager>
         );
     }
 }
