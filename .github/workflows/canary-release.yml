@@ -30,7 +30,7 @@ jobs:
           git config --global user.email "mzvast@gmail.com"
           git fetch
           git checkout master
-          echo "https://registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> .npmrc
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
           cat .npmrc
           echo "npm whoami"
           npm whoami
