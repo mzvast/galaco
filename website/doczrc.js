@@ -9,6 +9,7 @@ export default {
     typescript: true,
     wrapper: 'wrapper',
     codeSandbox: false,
+    title: 'galaco',
     base: `/galaco/`,
     ordering: 'ascending',
     description: 'galaco docs'
